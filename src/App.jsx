@@ -6,6 +6,7 @@ import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
+import Checkout from "./components/Checkout"; 
 import "./App.css";
 
 function Layout() {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
     ],
   },
