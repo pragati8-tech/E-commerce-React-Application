@@ -4,10 +4,11 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
+import Cart from "./components/Cart";
 import "./App.css";
 
 function Layout() {
-  const cartCount = 0; 
+  const cartCount = 0;
 
   return (
     <>
@@ -27,11 +28,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <ProductList />
+        element: <ProductList />,
       },
       {
-        path: "product/:id",   // ← dynamic route
+        path: "product/:id", // ← dynamic route
         element: <ProductDetail />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },
