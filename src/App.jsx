@@ -2,6 +2,7 @@
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./components/Header";
+import ProductList from "./components/ProductList";
 import "./App.css";
 
 function Layout() {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>Home Page </div>,
+        element: <ProductList />
       },
     ],
   },
