@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart";
+import NotFound from "./components/NotFound";
 import "./App.css";
 
 function Layout() {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
