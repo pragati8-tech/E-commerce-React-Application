@@ -1,6 +1,8 @@
 // App.jsx - Main component, wraps entire app with Router and Header
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { selectCartCount } from './store/cartSlice';
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
@@ -10,7 +12,7 @@ import Checkout from "./components/Checkout";
 import "./App.css";
 
 function Layout() {
-  const cartCount = 0;
+  const cartCount = useSelector(selectCartCount);
 
   return (
     <>
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
         element: <ProductList />,
       },
       {
-        path: "product/:id", // ← dynamic route
+        path: "product/:id", //  dynamic route
         element: <ProductDetail />,
       },
       {
