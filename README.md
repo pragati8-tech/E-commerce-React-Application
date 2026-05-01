@@ -1,16 +1,79 @@
-# React + Vite
+# ShoppyGlobe - E-commerce Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A basic e-commerce application built with React and Vite.
 
-Currently, two official plugins are available:
+## GitHub Repository
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[ShoppyGlobe GitHub Repo](https://github.com/pragati8-tech/E-commerce-React-Application)
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + Vite
+- Redux Toolkit
+- React Router DOM
+- CSS
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Product listing with search
+- Product detail page
+- Add to cart / Remove from cart
+- Quantity management
+- Checkout with order placement
+- 404 Not Found page
+- Lazy loading for performance
+- Responsive design
+
+## Project Structure
+shoppyglobe/
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── ProductList.jsx
+│   │   ├── ProductItem.jsx
+│   │   ├── ProductDetail.jsx
+│   │   ├── Cart.jsx
+│   │   ├── CartItem.jsx
+│   │   ├── Checkout.jsx
+│   │   └── NotFound.jsx
+│   ├── hooks/
+│   │   └── useFetchProducts.js
+│   ├── store/
+│   │   ├── store.js
+│   │   └── cartSlice.js
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+├── index.html
+├── vite.config.js
+└── package.json
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/pragati8-tech/E-commerce-React-Application.git
+
+# Go to project folder
+cd shoppyglobe
+
+# Install dependencies
+npm install
+
+# Run the app
+npm run dev
+```
+
+## API Used
+
+- [DummyJSON](https://dummyjson.com/products)
+
+## Pages
+
+| Page | Route |
+|------|-------|
+| Home | / |
+| Product Detail | /product/:id |
+| Cart | /cart |
+| Checkout | /checkout |
+| Not Found | * |
