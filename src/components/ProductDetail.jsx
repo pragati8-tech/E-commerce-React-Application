@@ -1,7 +1,8 @@
 // ProductDetail.jsx - Shows detailed information about a single product
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
+import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/cartSlice';
 function ProductDetail() {
   // const product = {
   //   id: 1,
@@ -14,6 +15,8 @@ function ProductDetail() {
   //   category: 'smartphones',
   // };
   const { id } = useParams();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -37,7 +40,11 @@ function ProductDetail() {
         setLoading(false);
       });
   }, [id]);
-
+  // Add to Cart handler
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+    navigate('/cart'); // cart page pe redirect karo
+  }
   if (loading) {
     return <p>Loading product...</p>;
   }
@@ -52,25 +59,13 @@ function ProductDetail() {
   return (
     <div className="product-detail">
       <h2>{product.title}</h2>
-      <p>
-        <strong>Brand:</strong> {product.brand}
-      </p>
-      <p>
-        <strong>Category:</strong> {product.category}
-      </p>
-      <p>
-        <strong>Price:</strong> ${product.price}
-      </p>
-      <p>
-        <strong>Rating:</strong> ⭐ {product.rating}
-      </p>
-      <p>
-        <strong>Stock:</strong> {product.stock}
-      </p>
-      <p>
-        <strong>Description:</strong> {product.description}
-      </p>
-      <button className="product-item__btn">Add to Cart 🛒</button>
+      <p><strong>Brand:</strong> {product.brand}</p>
+      <p><strong>Category:</strong> {product.category}</p>
+      <p><strong>Price:</strong> ${product.price}</p>
+      <p><strong>Rating:</strong> ⭐ {product.rating}</p>
+      <p><strong>Stock:</strong> {product.stock}</p>
+      <p><strong>Description:</strong> {product.description}</p>
+      <button className="product-item__btn" onClick={handleAddToCart}>Add to Cart 🛒</button>
     </div>
   );
 }
