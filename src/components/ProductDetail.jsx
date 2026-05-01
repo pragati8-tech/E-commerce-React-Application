@@ -35,7 +35,7 @@ function ProductDetail() {
         setLoading(false);
       })
       .catch((err) => {
-        // error ko state mein store karo
+       
         setError(err.message);
         setLoading(false);
       });
@@ -43,7 +43,7 @@ function ProductDetail() {
   // Add to Cart handler
   const handleAddToCart = () => {
     dispatch(addToCart(product));
-    navigate('/cart'); // cart page pe redirect karo
+    navigate('/cart');
   }
   if (loading) {
     return <p>Loading product...</p>;
