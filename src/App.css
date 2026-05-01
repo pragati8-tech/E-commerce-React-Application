@@ -216,6 +216,10 @@ body {
   min-width: 80px;
   text-align: center;
 }
+.cart-item__quantity button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 /* ========== Cart Extra Styles ========== */
 .cart__empty {
   text-align: center;
