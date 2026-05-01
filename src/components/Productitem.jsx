@@ -12,9 +12,11 @@ function ProductItem({ product }) {
   };
   return (
     <div className="product-item">
+        {/* Image lazy loading - loading="lazy" */}
       <img
         src={product.thumbnail}
         alt={product.title}
+        loading="lazy"              
         className="product-item__image"
       />
       <Link to={`/product/${product.id}`}>

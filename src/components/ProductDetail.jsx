@@ -58,6 +58,13 @@ function ProductDetail() {
   }
   return (
     <div className="product-detail">
+       {/* Image lazy loading */}
+      <img
+        src={product.thumbnail}
+        alt={product.title}
+        loading="lazy"             
+        className="product-detail__img"
+      />
       <h2>{product.title}</h2>
       <p><strong>Brand:</strong> {product.brand}</p>
       <p><strong>Category:</strong> {product.category}</p>
