@@ -31,7 +31,7 @@ function ProductList() {
     <section className="product-list">
       <h2 className="product-list__heading">All Products</h2>
 
-      {/* Search Bar - Redux state update karo */}
+      {/* Search Bar  */}
       <div className="product-list__search">
         <input
           type="text"
@@ -41,8 +41,6 @@ function ProductList() {
           className="product-list__search-input"
         />
       </div>
-
-      {/* Agar koi product nahi mila */}
       {filteredProducts.length === 0 ? (
         <p className="product-list__no-result">
           No products found for "<strong>{searchQuery}</strong>"
@@ -50,7 +48,7 @@ function ProductList() {
       ) : (
         <div className="product-list__grid">
           {filteredProducts.map((product) => (
-            <ProductItem key={product.id} product={product} />
+            <ProductItem key={product.id} product={product} /> // ← unique key 
           ))}
         </div>
       )}
