@@ -89,7 +89,32 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 25px;
 }
+/* ========== Search Bar Styles ========== */
+.product-list__search {
+  margin-bottom: 25px;
+}
 
+.product-list__search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.product-list__search-input:focus {
+  border-color: #1a1a2e;
+}
+
+.product-list__no-result {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  font-size: 1.1rem;
+}
 /* ========== ProductItem Styles ========== */
 .product-item {
   background: white;

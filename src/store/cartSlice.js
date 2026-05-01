@@ -7,6 +7,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     cartItems: [],
+    searchQuery: ''
   },
   reducers: {
     // Action 1 - Product cart mein add karo
@@ -15,10 +16,8 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (existingItem) {
-      
         existingItem.quantity += 1;
       } else {
-      
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }
     },
@@ -54,6 +53,9 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.cartItems = [];
     },
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload;
+    },
   },
 });
 
@@ -64,6 +66,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   clearCart,
+  setSearchQuery,
 } = cartSlice.actions;
 
 //export Selectors  
@@ -73,5 +76,6 @@ export const selectCartTotal = (state) =>
   state.cart.cartItems.reduce(
     (total, item) => total + item.price * item.quantity, 0
   );
+  export const selectSearchQuery = (state) => state.cart.searchQuery;
 
 export default cartSlice.reducer;
