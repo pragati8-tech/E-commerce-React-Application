@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice";
 function ProductItem({ product }) {
   const dispatch = useDispatch();
+   const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  }
   return (
     <div className="product-item">
       <img
@@ -15,7 +18,7 @@ function ProductItem({ product }) {
       <p>Price: ${product.price}</p>
       <button
         className="product-item__btn"
-        onClick={() => dispatch(addToCart(product))}
+        onClick={handleAddToCart}
       >
         Add to Cart 🛒
       </button>
