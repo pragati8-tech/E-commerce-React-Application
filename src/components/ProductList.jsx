@@ -8,10 +8,18 @@ import useFetchProducts from '../hooks/useFetchProducts'
 // ];
 
 function ProductList() {
-  const { products, loading } = useFetchProducts();
+  const { products, loading, error } = useFetchProducts();
 
   if (loading) {
     return <p>Loading products...</p>;
+  }
+    if (error) {
+    return (
+      <div className="error-box">
+        <h2>⚠️ Something went wrong!</h2>
+        <p>{error}</p>
+      </div>
+    );
   }
   return (
     <section className="product-list">

@@ -13,24 +13,42 @@ function ProductDetail() {
   //   brand: 'Apple',
   //   category: 'smartphones',
   // };
-  const { id } = useParams(); 
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-   
     fetch(`https://dummyjson.com/products/${id}`)
-      .then((res) => res.json())
+      .then((res) => {
+        // agar response ok nahi hai to error throw karo
+        if (!res.ok) {
+          throw new Error("Failed to fetch product details. Please try again.");
+        }
+        return res.json();
+      })
       .then((data) => {
         setProduct(data);
         setLoading(false);
+      })
+      .catch((err) => {
+        // error ko state mein store karo
+        setError(err.message);
+        setLoading(false);
       });
-  }, [id]); 
+  }, [id]);
 
   if (loading) {
     return <p>Loading product...</p>;
   }
-
+  if (error) {
+    return (
+      <div className="error-box">
+        <h2>⚠️ Something went wrong!</h2>
+        <p>{error}</p>
+      </div>
+    );
+  }
   return (
     <div className="product-detail">
       <h2>{product.title}</h2>
