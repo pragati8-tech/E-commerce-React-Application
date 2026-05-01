@@ -30,25 +30,15 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      {
-        index: true,
-        element: <ProductList />,
+      {index: true, element: <ProductList />, // Home
       },
-      {
-        path: "product/:id", //  dynamic route
-        element: <ProductDetail />,
+      {path: "product/:id", element: <ProductDetail />, // Product Detail
       },
-      {
-        path: "cart",
-        element: <Cart />,
+      {path: "cart", element: <Cart />, // Cart
       },
-      {
-        path: "*",
-        element: <NotFound />,
+      {path: "*", element: <NotFound />,  // 404
       },
-      {
-        path: "checkout",
-        element: <Checkout />,
+      {path: "checkout",element: <Checkout />, // Checkout
       },
     ],
   },
